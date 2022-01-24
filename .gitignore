@@ -1,0 +1,37 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+build
+*.local
+.vscode
+.cache
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+pnpm-lock.yaml
+
+# Editor directories and files
+.idea
+# .vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# visual studio code
+.history
+*.log
+functions/*
+.temp/**
+
+# local env files
+.env.local
+.env.*.local
+.eslintcache
+
+
