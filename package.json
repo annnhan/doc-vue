@@ -1,0 +1,23 @@
+{
+  "name": "docvue",
+  "version": "1.0.0",
+  "description": "A api document generator for Vue3 single file component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annnhan/docvue.git"
+  },
+  "keywords": [
+    "vue",
+    "doc"
+  ],
+  "author": "hanan198501",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/annnhan/docvue/issues"
+  },
+  "homepage": "https://github.com/annnhan/docvue#readme"
+}
