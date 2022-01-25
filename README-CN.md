@@ -1,17 +1,17 @@
 # docvue
-A API documentation generator for Vue3 single file component.
+一个 Vue3 单文件组件 API 文档生成器。
 
-## Installation
+## 安装
 
 ```bash
 # for local
 npm i docvue
-# or for global
+# for global
 npm i -g docvue
 ```
 
-## Write api description in Vue file
-Add a comment beginning with "@doc" as api description at the "slot", "props", "emits", "methods" declarations in the code. 
+## 编写 API 描述
+在代码中的 “slot”、“props”、“emits”、“methods” 定义处添加以 “@doc” 开头的注释作为 api 描述。
 
 ```js
 <template>
@@ -65,40 +65,40 @@ Add a comment beginning with "@doc" as api description at the "slot", "props", "
 </script>
 ```
 
-## Use on the command line
+## 在命令行中使用
 
 ```bash
 docvue xxx.vue xxx.json
 
 ```
-"xxx.vue" is the path of your vue file , "xxx.json" is the path of your API documentation file.
-### Output document format
-Based on the suffix of the input documentation file, the API documentation will be automatically generated in one of the following formats: "json\md\html", the default is "json".
+"xxx.vue" 是你的 vue 文件路径, "xxx.json" 是 API 文档文件路径.
+
+### 输出的文档格式
+根据输入的文档文件的后缀名，会自动生成以下格式之一的 API 文档: "json\md\html"，默认为 "json".
 
 ```bash
-# Output a json documentation
+# 输出一个 json 文件
 docvue xxx.vue xxx.json
 
-# Output a markdown documentation
+# 输出一个 markdown 文件
 docvue xxx.vue xxx.md
 
-# Output a html documentation
+# 输出一个 html 文件
 docvue xxx.vue xxx.html
 ```
 
-## Use in Node.js
+## 在 Node.js 中使用
 
-docvue is a function that accepts 2 parameters, the first is the source string and the second is the options object, returns the document data.
-
+docvue 为一个函数，接受2个参数，第一个为源码字符串，第二个为选项对象，返回文档数据。
 ```js
 const docvue = require('docvue');
 const code = `your code`;
 const result = docvue(code);  // by default, result is json object
-const mdResult = docvue(code, {type: 'md'});  // mdResult is markdown string
-const htmlResult = docvue(code, {type: 'md'});  // htmlResult is html string
+const mdResult = docvue(code, {type: 'md'});  // result is markdown string
+
 ```
 
-### Options
+### 选项
 #### -t or --type
-Specify the type of document, input one of them: "json\md\html"，default is "json" 
+docvue 函数的指定文档类型，输入其中之一：“json\md\html”，默认为“json”。
 

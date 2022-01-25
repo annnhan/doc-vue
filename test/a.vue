@@ -1,124 +1,25 @@
 <template>
   <div class="component-crt-crud">
-    <search-form :search-schema="searchFormSchema" @search="search" @reset="handleReset" />
-    <div class="table-wrapper">
-      <div class="table-wrapper-header">
-        <a-button type="primary" @click="create"> <PlusOutlined />添加{{ crudName }}</a-button>
-        <a-button v-if="isDownload" type="primary" @click="download">
-          <ExportOutlined />导出
-        </a-button>
-      </div>
-      <a-table
-        :is-select="isSelect"
-        :columns="columns"
-        :data-source="tableData"
-        :loading="loading"
-        :pagination="paginationInfo"
-        :row-key="rowKey"
-        @handleSelectRow="handleSelectRow"
-        @change="handleTableChange"
-      >
-        <template v-for="item in Object.keys($slots)" #[item]="data" :key="item">
-          <slot :name="item" v-bind="data || {}"></slot>
-        </template>
-        <template #action="{ record }">
-          <a-button v-if="isShowRow" type="link" size="small" @click="show(record)"
-            ><EyeOutlined />查看</a-button
-          >
-          <a-button v-if="isEditRow" type="link" size="small" @click="edit(record)"
-            ><EditOutlined />编辑</a-button
-          >
-          <a-popconfirm
-            v-if="isDeleteRow"
-            :title="`确定删除吗?`"
-            ok-text="确定"
-            cancel-text="取消"
-            @confirm="del(record)"
-          >
-            <a-button type="link" size="small"> <ControlOutlined />删除 </a-button>
-          </a-popconfirm>
-          <!-- @doc 自定义操作列内容 -->
-          <slot name="customAction"></slot>
-        </template>
-      </a-table>
-    </div>
-
+    嘻嘻嘻嘻嘻嘻嘻
+    <!-- @doc 自定义操作列内容 -->
+    <slot name="customAction"></slot>
+    <!-- @doc 弹窗内容 -->
     <slot name="modal"></slot>
-    <a-modal
-      v-if="!$slots.modal"
-      v-model:visible="modalVisible"
-      :title="modalTitle"
-      :width="modalWidth"
-      :footer="detailEditable ? undefined : null"
-      @ok="saveDetail"
-    >
-      <template v-if="detailEditable" #footer>
-        <a-button @click="modalVisible = false">取消</a-button>
-        <a-button type="primary" @click="saveDetail">保存</a-button>
-      </template>
-      <template v-else #footer><span></span></template>
-      <a-form ref="modalForm" :model="detail" :label-col="{ style: { width: modalLabelWidth } }">
-        <a-form-item
-          v-for="item of modalFormSchema"
-          :key="item.id"
-          :label="item.label"
-          :rules="item.rules"
-          :name="item.model"
-        >
-          <a-input
-            v-if="item.itemType === 'input'"
-            v-model:value="detail[item.model]"
-            :readonly="!detailEditable || item.disabled"
-          />
-          <a-textarea
-            v-if="item.itemType === 'textarea'"
-            v-model:value="detail[item.model]"
-            :readonly="!detailEditable || item.disabled"
-          />
-          <a-select
-            v-if="item.itemType === 'select'"
-            v-model:value="detail[item.model]"
-            :readonly="!detailEditable || item.disabled"
-            :show-search="item.showSearch"
-          >
-            <a-select-option
-              v-for="option of item.selectDownList"
-              :key="option.value"
-              :value="option.value"
-              >{{ option.label }}</a-select-option
-            >
-          </a-select>
-        </a-form-item>
-      </a-form>
-    </a-modal>
   </div>
 </template>
 <script lang="ts">
   import { defineComponent, PropType, reactive, ref } from 'vue';
   import { omit } from 'lodash-es';
   import { message, Table as aTable } from 'ant-design-vue';
-  import {
-    EyeOutlined,
-    EditOutlined,
-    ControlOutlined,
-    ExportOutlined,
-  } from '@ant-design/icons-vue';
+
   import searchForm from './search-form.vue';
-  import { params, paginationInfo, SearchSchema } from './config';
+  import { params, paginationInfo, SearchSchema } from '../config';
 
   interface BaseObject {
     [propName: string]: any;
   }
 
   export default defineComponent({
-    components: {
-      searchForm,
-      aTable,
-      EyeOutlined,
-      EditOutlined,
-      ControlOutlined,
-      ExportOutlined,
-    },
 
     props: {
       // @doc 增删改查目标的名称

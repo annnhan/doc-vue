@@ -1,6 +1,7 @@
 // 根据 vue 文件语法解析 API 文档
 const os = require('os');
-
+const {marked} = require ('marked');
+const json2md = require("json2md")
 const { parse, babelParse } = require('@vue/compiler-sfc');
 const traverse = require('@babel/traverse').default;
 const defaultConfig = require('./config');
@@ -188,13 +189,59 @@ function genJson(code) {
   return json;
 }
 
+function genMd(code){
+  const json =  genJson(code);
+  const mdList = [];
+  Object.keys(json).forEach(key => {
+    mdList.push({h2: key});
+    const docs = json[key];
+    if(docs && docs.length) {
+      const table = {rows: []};
+      mdList.push({table});
+      switch (key) {
+        case 'slots':
+        case 'events':
+          table.headers = ['name','desc']
+          break;
+        case 'props':
+          table.headers = ['name','type','desc','default','required']
+          break;
+        case 'methods':
+          table.headers = ['name','desc','params','returns']
+          break;
+        default:
+          break;
+      }
+      docs.forEach(doc => {
+        if(key === 'methods' && doc.params && doc.params.length) {
+          doc.params = doc.params.map(param => {
+            return `${param.name}: ${param.desc}`
+          }).join('</br>')
+        }
+        doc.params = doc.params || '';
+        doc.default = doc.default || '';
+        doc.required = doc.required || '';
+        doc.type = doc.type || '';
+        doc.returns = doc.returns || '';
+        table.rows.push(doc);
+      })
+    }
+    
+  });
+  return json2md(mdList);;
+}
+
+function genHtml(code){
+  return marked.parse(genMd(code));
+}
+
 module.exports = function(code = '', config = {}){
   config = Object.assign({}, defaultConfig, config);
   switch (config.type) {
     case 'html':
-      break;
+      return genHtml(code);
     case 'md':
-      break;
+      return genMd(code);
     default:
       return genJson(code);
   }
