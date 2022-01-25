@@ -8,8 +8,8 @@ A API documentation generator for Vue3 single file component.
 ## Table of Contents
 
 - [Installation](#installation)
-- [Write API description](#write-API-description)
-- [Command line usage](#command-line-usage)
+- [Write API Description](#write-API-description)
+- [Command line Usage](#command-line-usage)
 - [Programmatic Usage](#programmatic-usage)
 - [Options](#options)
 - [License](#license)
