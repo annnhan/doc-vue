@@ -1,25 +1,34 @@
-<a href="https://github.com/annnhan/docvue/blob/main/README-CN.md" style="float: right">
+<a href="https://github.com/annnhan/doc-vue/blob/main/README-CN.md" style="float: right">
   简体中文
 </a>
 
-# docvue
-<a href="https://www.npmjs.com/package/docvue"><img src="https://img.shields.io/npm/v/docvue" /></a>
-<img src="https://img.shields.io/badge/node-%3E%3D12.2.0-blue" />
-<img src="https://img.shields.io/badge/icense-MIT-green" />
+# doc-vue
+<a href="https://www.npmjs.com/package/doc-vue"><img src="https://img.shields.io/npm/v/doc-vue" /></a>
+<a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/badge/node-%3E%3D12.2.0-blue" /></a>
+<a href="https://github.com/annnhan/doc-vue/blob/main/LICENSE"><img src="https://img.shields.io/badge/icense-MIT-green" /></a>
+<a href="https://github.com/annnhan/doc-vue/blob/main/README-CN.md"><img src="https://img.shields.io/badge/-简体中文-yellowgreen" /></a>
 
 A API documentation generator for Vue3 single file component.
+## Table of Contents
+
+- [Installation](#installation)
+- [Write API description](#write-API-description)
+- [Command line usage](#command-line-usage)
+- [Programmatic Usage](#programmatic-usage)
+- [Options](#options)
+- [License](#license)
 
 ## Installation
 
 ```bash
 # for local
-npm i docvue
+npm i doc-vue
 
 # or for global
-npm i -g docvue
+npm i -g doc-vue
 ```
 
-## Write api description in Vue file
+## Documentation Syntax
 Add a comment beginning with "@doc" as api description at the "slot", "props", "emits", "methods" declarations in the code. 
 
 ```js
@@ -74,7 +83,7 @@ Add a comment beginning with "@doc" as api description at the "slot", "props", "
 </script>
 ```
 
-## Use on the command line
+## Command line usage
 
 ```bash
 docvue xxx.vue xxx.json
@@ -82,7 +91,7 @@ docvue xxx.vue xxx.json
 ```
 "xxx.vue" is the path of your vue file , "xxx.json" is the path of your API documentation file.
 ### Output document format
-Based on the suffix of the input documentation file, the API documentation will be automatically generated in one of the following formats: "json\md\html", the default is "json".
+Based on the suffix of the input documentation file, the API documentation will be automatically generated in one of the following formats: "json\md\html", the default is "json". See [demo](https://github.com/annnhan/doc-vue/tree/main/demo).
 
 ```bash
 # Output a json documentation
@@ -95,12 +104,12 @@ docvue xxx.vue xxx.md
 docvue xxx.vue xxx.html
 ```
 
-## Use in Node.js
+## Programmatic Usage
 
 docvue is a function that accepts 2 parameters, the first is the source string and the second is the options object, returns the document data.
 
 ```js
-const docvue = require('docvue');
+const docvue = require('doc-vue');
 const code = `your code`;
 const result = docvue(code);  // by default, result is json object
 const mdResult = docvue(code, {type: 'md'});  // mdResult is markdown string
@@ -108,6 +117,8 @@ const htmlResult = docvue(code, {type: 'md'});  // htmlResult is html string
 ```
 
 ### Options
-#### -t or --type
+#### type
 Specify the type of document, input one of them: "json\md\html"，default is "json" 
 
+## License
+MIT

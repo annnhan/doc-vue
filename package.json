@@ -1,15 +1,17 @@
 {
-  "name": "docvue",
+  "name": "doc-vue",
   "version": "1.0.9",
-  "description": "A api document generator for Vue3 single file component.",
+  "description": "A API document generator for Vue3 single file component.",
   "main": "parser.js",
-  "bin": "bin/cli.js",
+  "bin": {
+    "docvue": "bin/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/annnhan/docvue.git"
+    "url": "git+https://github.com/annnhan/doc-vue.git"
   },
   "keywords": [
     "vue",
@@ -18,9 +20,9 @@
   "author": "annnhan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/annnhan/docvue/issues"
+    "url": "https://github.com/annnhan/doc-vue/issues"
   },
-  "homepage": "https://github.com/annnhan/docvue#readme",
+  "homepage": "https://github.com/annnhan/doc-vue#readme",
   "dependencies": {
     "@babel/traverse": "^7.16.10",
     "@vue/compiler-sfc": "^3.2.29",
