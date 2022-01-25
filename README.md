@@ -1,7 +1,3 @@
-<a href="https://github.com/annnhan/doc-vue/blob/main/README-CN.md" style="float: right">
-  简体中文
-</a>
-
 # doc-vue
 <a href="https://www.npmjs.com/package/doc-vue"><img src="https://img.shields.io/npm/v/doc-vue" /></a>
 <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/badge/node-%3E%3D12.2.0-blue" /></a>

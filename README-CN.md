@@ -1,4 +1,3 @@
-
 # doc-vue
 <a href="https://www.npmjs.com/package/doc-vue"><img src="https://img.shields.io/npm/v/doc-vue" /></a>
 <img src="https://img.shields.io/badge/node-%3E%3D12.2.0-blue" />
