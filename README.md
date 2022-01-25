@@ -1,4 +1,12 @@
+<a href="https://github.com/annnhan/docvue/blob/main/README-CN.md" style="float: right">
+  简体中文
+</a>
+
 # docvue
+<a href="https://www.npmjs.com/package/docvue"><img src="https://img.shields.io/npm/v/docvue" /></a>
+<img src="https://img.shields.io/badge/node-%3E%3D12.2.0-blue" />
+<img src="https://img.shields.io/badge/icense-MIT-green" />
+
 A API documentation generator for Vue3 single file component.
 
 ## Installation
@@ -6,6 +14,7 @@ A API documentation generator for Vue3 single file component.
 ```bash
 # for local
 npm i docvue
+
 # or for global
 npm i -g docvue
 ```

@@ -1,3 +1,6 @@
+<a href="https://github.com/annnhan/docvue" style="float: right">
+  English
+</a>
 # docvue
 一个 Vue3 单文件组件 API 文档生成器。
 
@@ -6,6 +9,7 @@
 ```bash
 # for local
 npm i docvue
+
 # for global
 npm i -g docvue
 ```
