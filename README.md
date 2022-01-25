@@ -9,7 +9,7 @@ A API documentation generator for Vue3 single file component.
 
 - [Installation](#installation)
 - [Write API Description](#write-API-description)
-- [Command line Usage](#command-line-usage)
+- [Command Line Usage](#command-line-usage)
 - [Programmatic Usage](#programmatic-usage)
 - [Options](#options)
 - [License](#license)
