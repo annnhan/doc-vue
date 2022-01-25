@@ -79,14 +79,14 @@ Add a comment beginning with "@doc" as api description at the "slot", "props", "
 </script>
 ```
 
-## Command line usage
+## Command Line Usage
 
 ```bash
 docvue xxx.vue xxx.json
 
 ```
 "xxx.vue" is the path of your vue file , "xxx.json" is the path of your API documentation file.
-### Output document format
+### Output Document Format
 Based on the suffix of the input documentation file, the API documentation will be automatically generated in one of the following formats: "json\md\html", the default is "json". See [demo](https://github.com/annnhan/doc-vue/tree/main/demo).
 
 ```bash
