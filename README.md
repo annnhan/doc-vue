@@ -109,7 +109,7 @@ const docvue = require('doc-vue');
 const code = `your code`;
 const result = docvue(code);  // by default, result is json object
 const mdResult = docvue(code, {type: 'md'});  // mdResult is markdown string
-const htmlResult = docvue(code, {type: 'md'});  // htmlResult is html string
+const htmlResult = docvue(code, {type: 'html'});  // htmlResult is html string
 ```
 
 ### Options

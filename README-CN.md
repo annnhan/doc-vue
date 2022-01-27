@@ -100,7 +100,7 @@ docvue 为一个函数，接受2个参数，第一个为源码字符串，第二
 const docvue = require('doc-vue');
 const code = `your code`;
 const result = docvue(code);  // by default, result is json object
-const mdResult = docvue(code, {type: 'md'});  // result is markdown string
+const mdResult = docvue(code, {type: 'html'});  // result is markdown string
 
 ```
 
