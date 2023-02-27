@@ -319,25 +319,4 @@
   });
 </script>
 <style lang="less" scoped>
-  .component-crt-crud {
-    .table-wrapper {
-      background-color: #fff;
-      padding: 24px;
-      margin-top: 24px;
-      box-shadow: 0 1px 4px #00152914;
-      &-header {
-        padding-bottom: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        button {
-          margin-right: 16px;
-        }
-      }
-      &-footer {
-        text-align: right;
-        padding-top: 24px;
-      }
-    }
-  }
 </style>

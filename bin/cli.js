@@ -7,10 +7,11 @@ const defaultConfig = require('../config');
 const inputFilePath = argv._[0];
 const outputFilePath = argv._[1];
 
-let type = outputFilePath.split('.').pop().trim();
+let type = outputFilePath ? outputFilePath.split('.').pop().trim() : defaultConfig.type;
 type = /^(json|md|html)$/.test(type) ? type : defaultConfig.type;
 
 const code = fs.readFileSync(inputFilePath).toString();
+
 const result = parser(code, {type});
 fs.writeFileSync(
   outputFilePath || `${inputFilePath}.${type}`, 

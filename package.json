@@ -1,6 +1,6 @@
 {
   "name": "doc-vue",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A API document generator for Vue3 single file component.",
   "main": "parser.js",
   "bin": {
@@ -28,7 +28,6 @@
     "@vue/compiler-sfc": "^3.2.29",
     "json2md": "^1.12.0",
     "marked": "^4.0.10",
-    "minimist": "^1.2.5",
-    "vue": "^2.6.14"
+    "minimist": "^1.2.5"
   }
 }

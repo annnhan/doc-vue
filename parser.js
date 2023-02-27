@@ -93,7 +93,7 @@ function genSlots(ast) {
 // 提取事件文档
 function genEvents(eventsNode) {
   const result = [];
-  eventsNode.value.elements.forEach((node) => {
+  (eventsNode.elements || eventsNode.value.elements).forEach((node) => {
     if (node.leadingComments && node.leadingComments.length) {
       const commentNode = node.leadingComments[0];
       const descContent = commentNode.value.trim();
@@ -112,7 +112,7 @@ function genEvents(eventsNode) {
 // 提取 props 文档
 function genProps(propsNode) {
   const result = [];
-  propsNode.value.properties.forEach((node) => {
+  (propsNode.properties || propsNode.value.properties).forEach((node) => {
     if (node.leadingComments && node.leadingComments.length) {
       const commentNode = node.leadingComments[0];
       const descContent = commentNode.value.trim();
@@ -121,7 +121,7 @@ function genProps(propsNode) {
           name: node.key.name,
           ...parseComment(commentNode),
         };
-        node.value.properties.forEach((item) => {
+        (node.properties || node.value.properties).forEach((item) => {
           const valueNode = item.value;
           let value = valueNode.value ?? valueNode.name ?? valueNode.expression?.name;
           if (valueNode.type === 'ArrowFunctionExpression') {
@@ -140,7 +140,7 @@ function genProps(propsNode) {
 // 提取 methods 文档
  function genMethods(methodsNode) {
   const result = [];
-  methodsNode.value.properties.forEach((node) => {
+  (methodsNode.properties || methodsNode.value.properties).forEach((node) => {
     if (node.leadingComments && node.leadingComments.length) {
       const commentNode = node.leadingComments[0];
       const descContent = commentNode.value.trim();
@@ -158,8 +158,9 @@ function genProps(propsNode) {
 
 // 生成文档 json 数据
 function genJson(code) {
-  const { template, script } = parseSFC(code).descriptor;
-  const scriptAST = parseScriptAST(script.content);
+  const ret = parseSFC(code);
+  const { template, script , scriptSetup} = ret.descriptor;
+  const scriptAST = parseScriptAST((script || scriptSetup).content);
   const json = {
     slots: genSlots(template.ast),
   };
@@ -183,6 +184,14 @@ function genJson(code) {
               break;
           }
         });
+      }
+      if (callNode.callee.name === 'defineProps') {
+        const argNode = callNode.arguments[0];
+        json.props = genProps(callNode.arguments[0]);
+      }
+      if (callNode.callee.name === 'defineEmits') {
+        const argNode = callNode.arguments[0];
+        json.events = genEvents(argNode);
       }
     },
   });

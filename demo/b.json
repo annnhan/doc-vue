@@ -1,0 +1,148 @@
+{
+  "slots": [
+    {
+      "name": "customAction",
+      "desc": "自定义操作列内容"
+    },
+    {
+      "name": "modal",
+      "desc": "弹窗内容"
+    }
+  ],
+  "props": [
+    {
+      "name": "crudName",
+      "desc": "增删改查目标的名称",
+      "type": "String",
+      "default": "''"
+    },
+    {
+      "name": "modalFormSchema",
+      "desc": "详情弹窗表单字段配置列表",
+      "type": "Array",
+      "default": "[]"
+    },
+    {
+      "name": "modalWidth",
+      "desc": "详情弹窗宽度",
+      "type": "String",
+      "default": "'1200px'"
+    },
+    {
+      "name": "modalLabelWidth",
+      "desc": "详情弹窗表单label宽度",
+      "type": "String",
+      "default": "'300px'"
+    },
+    {
+      "name": "searchFormSchema",
+      "desc": "查询表单字段配置列表",
+      "type": "Array",
+      "default": "[]"
+    },
+    {
+      "name": "colSpan",
+      "desc": "查询表单col组件的span属性",
+      "type": "Number",
+      "default": "8"
+    },
+    {
+      "name": "columns",
+      "desc": "表格列，同 a-table 的 columns 参数",
+      "type": "Array",
+      "default": "[]"
+    },
+    {
+      "name": "rowKey",
+      "desc": "表格rowKey 同 a-table 的 rowKey 参数",
+      "type": "String || null",
+      "default": "'id'"
+    },
+    {
+      "name": "isSelect",
+      "desc": "是否可选择",
+      "type": "Boolean",
+      "default": "false"
+    },
+    {
+      "name": "isDownload",
+      "desc": "是否可导出",
+      "type": "Boolean",
+      "default": "false"
+    },
+    {
+      "name": "isDeleteRow",
+      "desc": "是否可删除单行数据",
+      "type": "Boolean",
+      "default": "false"
+    },
+    {
+      "name": "isEditRow",
+      "desc": "是否可编辑单行数据",
+      "type": "Boolean",
+      "default": "false"
+    },
+    {
+      "name": "isShowRow",
+      "desc": "是否可查看单行数据",
+      "type": "Boolean",
+      "default": "false"
+    },
+    {
+      "name": "searchListFunc",
+      "desc": "查询列表方法",
+      "type": "Function",
+      "default": "() => Promise.resolve()"
+    },
+    {
+      "name": "searchRowFunc",
+      "desc": "查询单行数据方法",
+      "type": "Function",
+      "default": "() => Promise.resolve()"
+    },
+    {
+      "name": "createRowFunc",
+      "desc": "添加方法",
+      "type": "Function",
+      "default": "() => Promise.resolve()"
+    },
+    {
+      "name": "updateRowFunc",
+      "desc": "更新方法",
+      "type": "Function",
+      "default": "() => Promise.resolve()"
+    },
+    {
+      "name": "deleteRowFunc",
+      "desc": "删除方法",
+      "type": "Function",
+      "default": "() => Promise.resolve()"
+    }
+  ],
+  "events": [
+    {
+      "name": "downloadClick",
+      "desc": "导出按钮点击"
+    },
+    {
+      "name": "createClick",
+      "desc": "添加按钮点击"
+    },
+    {
+      "name": "showClick",
+      "desc": "查看按钮点击"
+    },
+    {
+      "name": "editClick",
+      "desc": "编辑按钮点击"
+    },
+    {
+      "name": "deleteClick",
+      "desc": "删除按钮点击"
+    },
+    {
+      "name": "detailChange",
+      "desc": "详情数据变更"
+    }
+  ]
+}
