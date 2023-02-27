@@ -17,7 +17,7 @@ npm i -g doc-vue
 ```
 
 ## 文档写法
-在代码中的 “slot”、“props”、“emits”、“methods” 定义处添加以 “@doc” 开头的注释作为 api 描述。
+在代码中的 “slot”、“props”、“emits” 定义处添加以 “@doc” 开头的注释作为 api 描述。
 
 ```js
 <template>
@@ -28,49 +28,52 @@ npm i -g doc-vue
     <slot name="modal"></slot>
   </div>
 </template>
-<script lang="ts">
-  import { defineComponent} from 'vue';
-  export default defineComponent({
+<template>
+  <div class="component-crt-crud">
+    <!-- @doc 自定义操作列内容 -->
+    <slot name="customAction"></slot>
+    <!-- @doc 弹窗内容 -->
+    <slot name="modal"></slot>
+  </div>
+</template>
+<script lang="ts" setup>
 
-    props: {
-      // @doc name of crud
+  const props = defineProps({
+      // @doc 增删改查目标的名称
       crudName: {
         type: String,
         default: '',
       },
-      // @doc modal form fieds
+
+      // @doc 详情弹窗表单字段配置列表
       modalFormSchema: {
-        type: Array as PropType<SearchSchema[]>,
+        type: Array ,
         default: () => [],
       },
-    },
 
-    emits: [
-      // @doc download button click event
-      'downloadClick',
-    ],
-
-    setup() {
-      return {};
-    },
-    methods: {
-      /**
-       * @doc show detal 
-       * @param record detail data object
-       */
-      async show(record: BaseObject) {
-        //...
+      // @doc 详情弹窗宽度
+      modalWidth: {
+        type: String,
+        default: '1200px',
       },
+    });
 
-      // @doc fetch table data 
-      async fetchList() {
-        //...
-      },
-    },
-  });
+  const emits = defineEmits([
+    // @doc 导出按钮点击
+    'downloadClick',
+    // @doc 添加按钮点击
+    'createClick',
+    // @doc 查看按钮点击
+    'showClick',
+    // @doc 编辑按钮点击
+    'editClick',
+    // @doc 删除按钮点击
+    'deleteClick',
+    // @doc 详情数据变更
+    'detailChange',
+  ]);
 </script>
 ```
-
 ## 在命令行中使用
 
 ```bash
